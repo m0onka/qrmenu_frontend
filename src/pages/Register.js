@@ -6,7 +6,7 @@ import { signIn } from '../apis';
 import MainLayout from '../layouts/MainLayout';
 import AuthContext from '../contexts/AuthContext';
 
-const Login = () => {
+const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -20,7 +20,7 @@ const Login = () => {
   });
 
   const onClick = () => {
-    auth.signIn(username, password, () => history.replace("/places"));
+    auth.register(username, password, () => history.replace("/places"));
   };
 
   return (
@@ -30,14 +30,14 @@ const Login = () => {
           <Card>
             <Card.Body>
               <h3 className="text-center">
-                <b>ВХОД</b>
+                <b>РЕГИСТРАЦИЯ</b>
               </h3>
 
               <Form.Group>
-                <Form.Label>Имя пользователя</Form.Label>
+                <Form.Label>Логин</Form.Label>
                 <Form.Control 
                   type="text" 
-                  placeholder="Введите имя пользователя" 
+                  placeholder="Введите логин" 
                   value={username} 
                   onChange={(e) => setUsername(e.target.value)} 
                 />
@@ -65,7 +65,7 @@ const Login = () => {
                       aria-hidden="true"
                     />
                   ) : (
-                    "Sign In"
+                    "Register"
                   )
                 }
               </Button>
@@ -79,4 +79,4 @@ const Login = () => {
 }
 
 
-export default Login;
+export default Register;
